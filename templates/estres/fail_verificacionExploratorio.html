@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Estrés - Análisis Exploratorio </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Favor de verificar que se han cargado como mínimo los archivos asociados a los insumos siguientes: </h3>
+	<h5 class="info"> "INFO_MERCADO.xlsx" </h5>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'estres:exploratorio' %}" > Continuar </a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}

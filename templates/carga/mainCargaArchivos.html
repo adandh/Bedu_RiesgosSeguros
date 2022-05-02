@@ -1,0 +1,95 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Carga de Archivos</h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Ingrese la ubicación de los archivos ".mat" correspondientes a la información base: </h3>
+
+	<div class="row">
+		{% if form.errors %}
+			<p class="info" > IMPORTANTE: Verifique que los insumos proporcionados sean correctos. </p>
+		{% endif %}
+
+		<form id="form" enctype="multipart/form-data" class="col s12" action="" method="post">{% csrf_token %}
+
+			<div class="row">
+				<div  class="file-field input-field col s6 ">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i>
+						<span >{{ form.par.label }}: *</span>
+						{{ form.par }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class="file-field input-field col s6 ">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i>
+						<span>{{ form.lyot.label }}: *</span>
+						{{ form.lyot }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class="file-field input-field col s6 ">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i> 
+						<span>{{ form.lylp.label }}: *</span>
+						{{ form.lylp }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class="file-field input-field col s6 ">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i>
+						<span>{{ form.sim.label }}: *</span>
+						{{ form.sim }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<h3 class="info"> IMPORTANTE: Estos archivos reemplazarán la información previamente cargada. </h3>
+			<button id="atras" class="btn waves-effect waves-light blue darken-4">
+				<i class="material-icons left">navigate_before</i> Regresar
+			</button>
+			<button id="submit_button" class="btn waves-effect waves-light blue darken-4" type="submit">
+				<i class="material-icons right">navigate_next</i> Ejecutar
+			</button>
+
+		</form>
+		
+		<div class="progress blue darken-4 col s6" id="procesando">
+			<div class="indeterminate blue"></div>
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}

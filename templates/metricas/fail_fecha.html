@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Métricas Riesgo Estándar </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> La fecha de corte proporcionada ({{ fecha_corte }}) no se encuentra al final del nombre de los siguientes archivos: </h3>
+
+	{% for archivo in lista_errorFecha %}
+		<h5 class="info"> {{ archivo }} </h5>
+	{% endfor %}
+
+	<h3 class="info"> Favor de proporcionar insumos cuyos nombres terminen en la sub-cadena "YYYYMMDD", en correspondencia con la fecha de corte. </h3>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'metricas:metricasriesgo' %}" >Continuar</a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+

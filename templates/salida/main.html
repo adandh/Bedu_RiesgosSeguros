@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+	<h3 class="info"> Antes de salir, ¿desea borrar los archivos .mat previamente cargados? </h3>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'salida:limpiar' %}" > Sí, deseo borrar </a>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'logout' %}" > No, no deseo borrar </a> 
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+

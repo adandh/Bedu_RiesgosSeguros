@@ -1,0 +1,164 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Métricas Riesgo Estándar </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Ingrese los parámetros e información requeridos: </h3>
+
+	<div class="row">
+		{% if form.errors %}
+			<h4 class="info"> IMPORTANTE: Verifique que los valores de los parámetros proporcionados sean correctos. </h4>
+		{% endif %}
+
+		<form id="form" enctype="multipart/form-data" class="col s12" action="" method="post">{% csrf_token %}
+
+			<div class="row">
+				<div  class= "col s3 ">
+					<h5 class="info"> Horizontes de riesgo a procesar </h5>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class= "col s2 ">
+					<label>
+						{{ form.horizonte_Diario }}
+						<span>{{ form.horizonte_Diario.label }} </span>
+					</label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>
+
+				<div  class="input-field col s2 ">
+					{{ form.numero_escenarios }}
+					<label>{{ form.numero_escenarios.label }}: </label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>
+
+				<div  class="file-field input-field col s6 ">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i>
+						<span>{{ form.rr7port.label }}: </span>
+						{{ form.rr7port }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class= "col s2 ">
+					<label>
+						{{ form.horizonte_Semanal }}
+						<span>{{ form.horizonte_Semanal.label }} </span>
+					</label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>
+
+				<div  class="input-field col s2">
+					{{ form.q }}
+					<label>{{ form.q.label }}: </label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>
+
+				<div  class="file-field input-field col s6 ">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i>
+						<span>{{ form.vecpip.label }}: </span>
+						{{ form.vecpip }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class= "col s2 ">
+					<label>
+						{{ form.horizonte_Mensual }}
+						<span>{{ form.horizonte_Mensual.label }} </span>
+					</label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>
+
+				<div  class="input-field col s2 ">
+					{{ form.fechacorte }}
+					<label>{{ form.fechacorte.label }}: </label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>			
+
+				<div  class="file-field input-field col s6">
+					<div class="btn transparent blue-text text-darken-4 col s6 button-margin">
+						<i class="material-icons">attach_file</i>
+						<span>{{ form.curpip.label }}: </span>
+						{{ form.curpip }}
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class= "col s2 ">
+					<label>
+						{{ form.horizonte_Anual }}
+						<span>{{ form.horizonte_Anual.label }} </span>
+					</label>
+				</div>
+				<div  class="input-field col s1 ">
+				</div>
+
+				<div  class= "col s3 ">
+				</div>
+
+				<div  class= "col s6 ">
+					<label>
+						{{ form.cartera_BT }}
+						<span>{{ form.cartera_BT.label }} </span>
+					</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div  class= "col s12 ">
+				</div>
+			</div>
+
+			<div class="row">
+				<button id="atras" class="btn waves-effect waves-light blue darken-4">
+					<i class="material-icons left">navigate_before</i> Regresar
+				</button>
+				<button id="submit_button" class="btn waves-effect waves-light blue darken-4" type="submit">
+					<i class="material-icons right">navigate_next</i> Ejecutar
+				</button>
+			</div>
+
+		</form>
+		
+		<div class="progress blue darken-4 col s6" id="procesando">
+			<div class="indeterminate blue"></div>
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+

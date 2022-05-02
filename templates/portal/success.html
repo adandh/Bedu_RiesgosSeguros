@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> El análisis solicitado se encuentra en proceso. </h2>
+	<h2 class="info"> Se le notificará por correo cuando los resultados estén disponibles. </h2>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+

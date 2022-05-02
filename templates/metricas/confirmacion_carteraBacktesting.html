@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Métricas Riesgo Estándar </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	{% if cartera_BT %}
+		
+		<h3 class="info"> Al proporcionar los insumos de información específicos, usted seleccionó que la cartera SÍ pueda ser considerada en el proceso de Backtesting.</h3>
+
+		<h3 class="info"> IMPORTANTE: El sistema reemplazará cualquier información previamente registrada para la fecha de corte proporcionada. </h3>
+
+	{% else %}
+
+		<h3 class="info"> Al proporcionar los insumos de información específicos, usted seleccionó que la cartera NO sea considerada en el proceso de Backtesting. </h3>
+
+	{% endif %}
+
+	<h3 class="info"> ¿Desea continuar? </h3>
+	
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'metricas:metricasriesgo_borrado' rcs_id %}" > Cancelar </a>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'metricas:metricasriesgo_confirmacion' rcs_id %}" > Continuar </a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+

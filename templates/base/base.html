@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+    {% block extrastatic %}
+
+    <!-- Latest compiled and minified CSS -->
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css--> 
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <script type="text/javascript" src="{% static 'js/materialize.min.js'%}"></script>
+
+    <style>
+        .dropdown-content {
+           overflow-y: visible;
+        }
+
+        .dropdown-content .dropdown-content {
+           margin-left: 100%;
+        }
+    </style>
+
+	{% endblock %}
+
+	<title>{% block title %} Riesgos de Seguros {% endblock %}</title>
+
+</head>
+
+
+<body>
+    <div>
+    	{% block navbar %}
+ 
+        <ul id="conf"  class="dropdown-content">
+                    <li><a href="{% url 'salida:main' %}" class="blue-text text-darken-4">Salir</a></li>
+        </ul>
+
+        <ul id="sensibilidad" class="dropdown-content">                        
+                    <li><a href="{% url 'sensibilidad:activo' %}" class="blue-text text-darken-4">Activo</a></li>
+            <li><a href="{% url 'sensibilidad:balance' %}" class="blue-text text-darken-4">Balance</a></li>                 
+        </ul>
+
+        <ul id="contribuciones" class="dropdown-content">                        
+                    <li><a href="{% url 'contribuciones:activo' %}" class="blue-text text-darken-4">Activo</a></li>
+		    <li><a href="{% url 'contribuciones:balance' %}" class="blue-text text-darken-4">Balance</a></li>                 
+        </ul>
+                    
+        </ul>
+        <ul id="estres" class="dropdown-content">            
+            <li><a href="{% url 'estres:exploratorio' %}" class="blue-text text-darken-4">Exploratorio</a></li>
+            <li><a href="{% url 'estres:financiero' %}" class="blue-text text-darken-4">Financiero</a></li>
+      		<li><a href="{% url 'estres:vida' %}"class="blue-text text-darken-4" >Vida</a></li>
+		    <li><a href="{% url 'estres:noVida' %}" class="blue-text text-darken-4">No Vida</a></li>
+                    
+        </ul>
+        
+        <ul id="reportes" class="dropdown-content">            
+            <li><a href="{% url 'reportes:reporte1' %}" class="blue-text text-darken-4">Reporte 1 (Diario Final)</a></li>
+            <li><a href="{% url 'reportes:reporte2' %}" class="blue-text text-darken-4">Reporte 2 (Riesgo Mercado)</a></li>
+            <li><a href="{% url 'reportes:reporte3' %}"class="blue-text text-darken-4" >Reporte 3 (Crédito INVE)</a></li>
+            <li><a href="{% url 'reportes:reporte4' %}" class="blue-text text-darken-4">Reporte 4 (Límites Portafolio)</a></li>
+            <li><a href="{% url 'reportes:reporte5' %}" class="blue-text text-darken-4">Reporte 5 (Cifras Control)</a></li>
+                    
+        </ul>
+
+        <nav>
+        <div class="nav-wrapper blue darken-4 text-white">
+            
+            <ul id="nav-mobile2" class="left">
+                <li><a href="{% url 'metricas:metricasriesgo'%}" class="text-white">Métricas Riesgo Estándar</a></li>
+                <li><a href="{% url 'backtesting:backtesting'%}" class="text-white">Backtesting</a></li>
+                <li><a class="dropdown-trigger text-white" href="#!" data-target="sensibilidad">Sensibilidad<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger text-white" href="#!" data-target="contribuciones">Contribuciones RCS<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger text-white" href="#!" data-target="estres">Estrés<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger text-white" href="#!" data-target="reportes">Reportes<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul> 
+
+            <ul id="nav-mobile" class="right">
+                <li><a href="{% url 'carga:carga'%}" class="text-white">Carga de Archivos</a></li>
+                <li><a class="dropdown-trigger text-white" href="#!" data-target="conf">Cuenta<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+
+        </nav>
+
+    	{% endblock %}
+
+
+    	{% block content %}
+    	<h4> Bloque de contenido </h4>
+    	{% endblock %}
+
+
+    	{% block footer %}
+        <footer>
+            <a href="{% url 'portal:index' %}" class="fixed-bottom"><img  src="{% static 'img/logonavbar.png' %}"></a>
+        </footer>
+    	{% endblock %}
+
+    </div>
+
+    {% block extrajs %}
+        <script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+    {% endblock %}
+
+</body>
+
+</html>

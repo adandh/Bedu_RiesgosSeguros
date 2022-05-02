@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Métricas Riesgo Estándar </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Favor de verificar que se han cargado como mínimo los archivos asociados a los insumos siguientes: </h3>
+	<h5 class="info"> "RR7PORTAFOLIOS.xlsx" </h5>
+	<h5 class="info"> "VECTORPIP.xls" </h5>
+	<h5 class="info"> "CURVASPIP.xls" </h5>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'metricas:metricasriesgo' %}" > Continuar </a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}

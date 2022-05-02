@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+static/admin/
+media/*
+db.sqlite3
+backtesting/migrations/
+carga/migrations/
+contribuciones/migrations/
+estres/migrations/
+metricas/migrations/
+portal/migrations/
+reportes/migrations/
+salida/migrations/
+sensibilidad/migrations/

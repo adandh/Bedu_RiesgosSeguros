@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Carga de Archivos</h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Los siguientes archivos se han cargado satisfactoriamente: </h3>
+
+	{% for archivo in lista_archivos %}
+		<h5 class="info"> {{ archivo }} </h5>
+	{% endfor %}
+
+	<h3 class="info"> Desea continuar </h3>
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'portal:index'%}"  > Continuar </a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}

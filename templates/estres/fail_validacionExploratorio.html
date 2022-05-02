@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Estrés - Análisis Exploratorio </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Los siguientes archivos presentaron inconsistencias: </h3>
+
+	{% for archivo in lista_archivos %}
+		<h5 class="info"> {{ archivo }} </h5>
+	{% endfor %}
+
+	<h3 class="info"> Se han enviado a su correo los archivos .log que contienen los errores identificados. </h3>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'estres:exploratorio' %}" > Continuar </a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+

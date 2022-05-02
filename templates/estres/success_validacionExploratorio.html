@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="padding-top: 2cm;">
+
+	<h2 class="info"> Estrés - Análisis Exploratorio </h2>
+	<h5 class="info"> ____________________________________ </h5>
+
+	<h3 class="info"> Los siguientes archivos han sido validados y con ellos se implementará el análisis solicitado: </h3>
+	{% for archivo in lista_archivos %}
+		<h5 class="info"> {{ archivo }} </h5>
+	{% endfor %}
+
+	<h3 class="info"> ¿Desea continuar? </h3>
+	
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'estres:exploratorio_borrado' rcs_id %}" > Cancelar </a>
+
+	<a class="btn waves-effect waves-light blue darken-4" href="{% url 'estres:exploratorio_confirmacion' rcs_id %}" > Continuar </a>
+
+</div>
+{% endblock %}
+
+
+{% block extrajs %}
+	<script type="text/javascript" src="{% static 'js/utils.js'%}"></script>
+{% endblock %}
+
