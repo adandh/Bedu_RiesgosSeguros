@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 
 #BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = 'fve8(qpui3@x81p8p7bjwb5g0)rsmvzp!1df^on+5^-6v(p0wo'
+SECRET_KEY = 'django-insecure-aehj__f1%)68nc-@b-p9l5(&a0e46!-c5ne&(8j(g2a6hbzxm@'
 DEBUG = True
 
 ALLOWED_HOSTS = []
